@@ -5,6 +5,11 @@ Creare un nuovo progetto con Laravel Breeze ed il pacchetto Laravel 9 Preset con
 
 Separare gli ambienti Guest da quelli Admin per quanto riguarda: stili, js, controller, viste e layout.
 
+Infine creare la CRUD(Create, Read, Update e Delete) del Portfolio.
+
+## **BONUS**
+In edit e create sostituire la textarea utilizzando CK Editor.
+
 ## **Passaggi**
 
 ---------------------------------------
@@ -137,3 +142,33 @@ php artisan serve
 	- dashboard.blade.php
 	- welcome.blade.php
 
+-------------------------------
+# **CRUD**
+
+## **Breve riepilogo: Rotte resource**
+
+**comics.index** -> GET -> funzione del controller: index -> view: comics.index
+
+**comics.show/{comic}** -> GET -> funzione del controller: show -> view: comics.show
+
+---------------------------------------------------
+
+**comics.create** -> GET -> funzione del controller: create -> view: comics.create (contiene il form di creazione)
+
+**comics.create** INVIA IL FORM IN ***POST*** a comics.store
+
+**comics.store** -> ***POST*** -> controlla la validità del dato, lo salva  e reindirizza a comics.show
+
+---------------------------------------------------
+
+**comics.edit{comic}** -> GET -> funzione del controller: edit -> view: **comics.edit** (contiene il form di modifica)
+
+**comics.edit** INVIA IL FORM IN PUT a comics.update
+
+---------------------------------------------------
+
+**comics.update** -> ***PUT*** -> controlla la validità del dato, lo aggiorna  e reindirizza a comics.show
+
+---------------------------------------------------
+
+**comics.destroy** -> ***DELETE*** -> elimina il dato e reindirizza a comics.index
