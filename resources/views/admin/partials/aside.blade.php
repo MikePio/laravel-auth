@@ -16,15 +16,15 @@
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link text-white {{ Request::is('admin/post_list') ? 'active' : '' }}">
+        <a href="#" class="nav-link text-white {{ Request::is('admin/project_list') ? 'active' : '' }}">
           <svg class="bi me-2" width="16" height="16"></svg>
-          <i class="fa-solid fa-list-ul"></i> Post list
+          <i class="fa-solid fa-list-ul"></i> Project list
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link text-white {{ Request::is('admin/post_list') ? 'new_post' : '' }}">
+        <a href="#" class="nav-link text-white {{ Request::is('admin/post_list') ? 'new_project' : '' }}">
           <svg class="bi me-2" width="16" height="16"></svg>
-          <i class="fa-solid fa-plus"></i> New Post
+          <i class="fa-solid fa-plus"></i> New Project
         </a>
       </li>
     </ul>

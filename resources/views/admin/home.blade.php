@@ -4,20 +4,25 @@
 
 <div class="container p-5 text-center">
     {{-- <h1>Home admin</h1> --}}
-    <h1 class="pb-3">Welcome!</h1>
+    {{-- <h1 class="pb-3">Welcome!</h1> --}}
+    <h1 class="pb-3">Welcome to our personal portfolio management platform!</h1>
     <p class="fs-5 text">
-    Welcome to the post management dashboard! Our home page offers you an intuitive and powerful interface to manage your content. With our dashboard, you can easily create, edit and delete your posts quickly and efficiently.
-    <br>
-    <br>
-    Managing posts is easy with editing and deleting options available right from the home page. With just a few clicks, you can make changes to content, update information, or remove posts that are no longer relevant.
-    <br>
-    <br>
-    In addition, our dashboard offers you the convenience of being able to "add" new posts right from the home page. Thanks to a dedicated button, you can easily create new content and publish it in just a few steps. Just click "New Post" and you'll be guided through an intuitive interface to enter the title, post content, and other pertinent information.
-    <br>
-    <br>
-    We're sure you'll find our post management home page intuitive and easy to use.
-    <br>
-    Explore its features and enjoy a hassle-free content management experience!
+      Our application offers you an easy and effective way to create, organize and showcase your personal portfolio online.
+      <br>
+      <br>
+      With our CRUD (Create, Read, Update, Delete) system, you can easily add new projects to your portfolio, view details of existing projects, make changes when needed, and even delete projects you no longer want to show.
+      <br>
+      <br>
+      Our intuitive interface allows you to upload images, provide a detailed description of the projects, enter information such as the title, the skills involved, the realization period and more. You can organize your projects into custom categories to make navigation easier for visitors.
+      <br>
+      <br>
+      Whether you are a designer, developer, photographer or artist, our portfolio management system allows you to showcase your work in a professional and engaging way. You can easily share your portfolio with potential clients, collaborators or just friends and family.
+      <br>
+      <br>
+      {{-- Our platform also ensures the security of your data. All information about your portfolio is securely stored and you can access your account from any device at any time.
+      <br>
+      <br> --}}
+      Start building your own portfolio today with our simple and efficient management platform. Show the world your skills and accomplishments in a professional and creative way!
     </p>
 </div>
 

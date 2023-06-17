@@ -10,6 +10,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    {{-- icon --}}
+    <link rel="icon" type="image/svg+xml" href="{{ Vite::asset('resources/img/laravel.png') }}"/>
+    {{-- <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1969px-Laravel.svg.png"/> --}}
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
 

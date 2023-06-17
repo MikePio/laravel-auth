@@ -5,7 +5,7 @@ Creare un nuovo progetto con Laravel Breeze ed il pacchetto Laravel 9 Preset con
 
 Separare gli ambienti Guest da quelli Admin per quanto riguarda: stili, js, controller, viste e layout.
 
-Infine creare la CRUD(Create, Read, Update e Delete) del Portfolio.
+Infine creare la CRUD(Create, Read, Update e Delete) di un Portfolio.
 
 ## **BONUS**
 In edit e create sostituire la textarea utilizzando CK Editor.
