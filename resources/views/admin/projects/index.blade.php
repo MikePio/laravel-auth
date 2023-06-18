@@ -6,7 +6,7 @@
 
   <h1 class="py-4">Projects</h1>
 
-  <table class="table">
+  <table class="table table-hover">
     <thead class="thead-dark">
       <tr class="">
         <th scope="col">#ID</th>
@@ -17,22 +17,23 @@
       </tr>
     </thead>
     <tbody>
-      {{-- @foreach ($d_c_comics as $comic) --}}
+      @foreach ($projects as $project)
 
         <tr>
-          {{-- <td>{{ $comic->id }}</td>
-          <td>{{ $comic->title }}</td>
-          <td>{{ $comic->price }}</td>
-          <td>{{ $comic->type }}</td> --}}
+          <td>{{ $project->id }}</td>
+          <td>{{ $project->name }}</td>
+          <td>{{ $project->category }}</td>
+          <td>{{ $project->produced_for }}</td>
 
           <td>
-            {{-- <a href="{{ route('d_c_comics.show', $comic) }}" class="btn btn-success">VAI</a> --}}
+            {{-- <a href="{{ route('projects.show', $project) }}" class="btn btn-success">VAI</a> --}}
             {{-- OPPURE --}}
-            {{-- <a href="{{ route('d_c_comics.show', $comic->id) }}" class="btn btn-success">VAI</a> --}}
+            {{-- <a href="{{ route('projects.show', $project->id) }}" class="btn btn-success">VAI</a> --}}
+            <a href="#" class="btn btn-success">VAI</a>
           </td>
         </tr>
 
-      {{-- @endforeach --}}
+      @endforeach
 
 
     </tbody>
