@@ -12,6 +12,7 @@
         <th scope="col">#ID</th>
         <th scope="col">Name</th>
         <th scope="col">Category</th>
+        <th scope="col">Start date</th>
         <th scope="col">Produced for</th>
         <th scope="col">Actions</th>
       </tr>
@@ -23,6 +24,10 @@
           <td>{{ $project->id }}</td>
           <td>{{ $project->name }}</td>
           <td>{{ $project->category }}</td>
+          @php
+            $date = date_create($project->start_date);
+            @endphp
+          <td>{{ date_format($date, 'd/m/Y') }}</td>
           <td>{{ $project->produced_for }}</td>
 
           <td>
