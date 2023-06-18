@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container p-5 text-center">
+    <div class="container p-5 text-center overflow-auto" style="max-height: calc(100vh - 70.24px);">
         {{-- <h1>Home guest</h1> --}}
         <h1>Welcome!</h1>
         <h2>Here you can manage your dashboard</h2>

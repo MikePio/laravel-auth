@@ -10,13 +10,13 @@
         </a>
       </li>
       <li>
-        <a href="{{ route('adminprojects.index') }}" class="nav-link text-white {{ Request::is('admin/projects') ? 'active' : '' }}">
+          <a href="#" class="nav-link text-white {{ Request::is('admin/dashboard') ? 'active' : '' }}">
           <svg class="bi me-2" width="16" height="16"></svg>
           <i class="fa-solid fa-chart-line"></i> Dashboard
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link text-white {{ Request::is('admin/project_list') ? 'active' : '' }}">
+        <a href="{{ route('adminprojects.index') }}" class="nav-link text-white {{ Request::is('admin/projects') ? 'active' : '' }}">
           <svg class="bi me-2" width="16" height="16"></svg>
           <i class="fa-solid fa-list-ul"></i> Project list
         </a>

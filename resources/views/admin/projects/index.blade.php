@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container p-5 d-flex flex-column align-items-center" style="max-height: calc(100vh - 70.24px);">
+<div class="container overflow-auto p-5 d-flex flex-column align-items-center" style="max-height: calc(100vh - 70.24px);">
 
   <h1 class="py-4">Projects</h1>
 
