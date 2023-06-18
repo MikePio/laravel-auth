@@ -17,7 +17,12 @@ class ProjectController extends Controller
      */
     public function index()
     {
-      $projects = Project::all();
+      //* vengono mostrati tutti progetti in una volta
+      // $projects = Project::all();
+      //* vengono mostrati 10 progetti alla volta (per far ciò è necessario importare bootstrap in AppServiceProvider)
+      // $projects = Project::paginate(10);
+      $projects = Project::paginate(2);
+
 
       return view('admin.projects.index', compact('projects'));
     }
