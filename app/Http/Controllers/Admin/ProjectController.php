@@ -45,7 +45,27 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      //* per salvare i dati nel database al click del button submit del form in create
+      $form_data = $request->all();
+
+      $new_project = new Project();
+
+      $new_project->name = $form_data['name'];
+      $new_project->slug = Project::generateSlug($form_data['name']);
+      $new_project->description = $form_data['description'];
+      $new_project->category = $form_data['category'];
+      // $new_project->date = date('Y-m-d');
+      $new_project->start_date = $form_data['start_date'];
+      $new_project->end_date = $form_data['end_date'];
+      $new_project->url = $form_data['url'];
+      $new_project->produced_for = $form_data['produced_for'];
+      $new_project->collaborators = $form_data['collaborators'];
+
+      // dd($request->all());
+      $new_project->save();
+
+      //* redirect al progetto appena generato
+      return redirect()->route('adminprojects.show', $new_project);
     }
 
     /**
