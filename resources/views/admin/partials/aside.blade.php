@@ -22,7 +22,7 @@
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link text-white {{ Request::is('admin/post_list') ? 'new_project' : '' }}">
+        <a href="{{ route('adminprojects.create') }}" class="nav-link text-white {{ Request::is('admin/projects/create') ? 'active' : '' }}">
           <svg class="bi me-2" width="16" height="16"></svg>
           <i class="fa-solid fa-plus"></i> New Project
         </a>

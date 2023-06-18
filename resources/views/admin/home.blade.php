@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container p-5 text-center">
+<div class="container overflow-auto px-5 pt-5 pb-4 text-center" style="max-height: calc(100vh - 70.24px);">
     {{-- <h1>Home admin</h1> --}}
     {{-- <h1 class="pb-3">Welcome!</h1> --}}
     <h1 class="pb-3">Welcome to our personal portfolio management platform!</h1>
@@ -24,6 +24,9 @@
       <br> --}}
       Start building your own portfolio today with our simple and efficient management platform. Show the world your skills and accomplishments in a professional and creative way!
     </p>
+
+    <a href="{{ route('adminprojects.create') }}" class="btn btn-primary mt-2">Add a new project</i></i></a>
+
 </div>
 
 @endsection

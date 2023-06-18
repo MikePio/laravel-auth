@@ -32,6 +32,7 @@
 
           <td>
             <a href="{{ route('adminprojects.show', $project) }}" class="btn btn-primary"><i class="fa-regular fa-eye"></i></a>
+            <a href="{{ route('adminprojects.edit', $project) }}" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></i></a>
             {{-- OPPURE --}}
             {{-- <a href="{{ route('projects.show', $project->id) }}" class="btn btn-primary"><i class="fa-regular fa-eye"></i></a> --}}
             {{-- <a href="#" class="btn btn-primary"><i class="fa-regular fa-eye"></i></a> --}}
