@@ -54,10 +54,27 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    //* metodo migliore
+    //! MA BISOGNA USARE IL PARAMETRO DI DEFAULT (in questo caso $dCComic) e non può essere modificato
+    public function show(Project $project)
     {
-        //
+      // con orario formattato (per show.blade.php)
+      $start_date = date_create($project->start_date);
+      $start_date_formatted = date_format($start_date, 'd/m/Y');
+
+      // con orario formattato (per show.blade.php)
+      $end_date = date_create($project->end_date);
+      $end_date_formatted = date_format($end_date, 'd/m/Y');
+
+      return view('admin.projects.show', compact('project', 'start_date_formatted', 'end_date_formatted'));
     }
+    // OPPURE con id
+    // public function show($id)
+    // {
+    //   $project = Project::find($id);
+    //   // dd($project);
+    //   return view('projects.show', compact('project'));
+    // }
 
     /**
      * Show the form for editing the specified resource.

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container p-5 d-flex flex-column align-items-center" style="min-height: calc(100vh - 90px - 150px);">
+<div class="container p-5 d-flex flex-column align-items-center" style="max-height: calc(100vh - 70.24px);">
 
   <h1 class="py-4">Projects</h1>
 
@@ -31,10 +31,10 @@
           <td>{{ $project->produced_for }}</td>
 
           <td>
-            {{-- <a href="{{ route('projects.show', $project) }}" class="btn btn-success">VAI</a> --}}
+            <a href="{{ route('adminprojects.show', $project) }}" class="btn btn-primary"><i class="fa-regular fa-eye"></i></a>
             {{-- OPPURE --}}
-            {{-- <a href="{{ route('projects.show', $project->id) }}" class="btn btn-success">VAI</a> --}}
-            <a href="#" class="btn btn-success">VAI</a>
+            {{-- <a href="{{ route('projects.show', $project->id) }}" class="btn btn-primary"><i class="fa-regular fa-eye"></i></a> --}}
+            {{-- <a href="#" class="btn btn-primary"><i class="fa-regular fa-eye"></i></a> --}}
           </td>
         </tr>
 

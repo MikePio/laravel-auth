@@ -1,7 +1,7 @@
 @auth
   <aside>
 
-  <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark shadow-top" style="width: 280px; height: calc(100vh - 70.24px);">
+  <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark shadow-top" style="width: 280px; min-height: calc(100vh - 70.24px);">
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
         <a href="{{ url('admin') }}" class="nav-link text-white {{ Request::is('admin') ? 'active' : '' }}" aria-current="page">
