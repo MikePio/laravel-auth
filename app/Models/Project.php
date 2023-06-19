@@ -11,6 +11,19 @@ class Project extends Model
 {
     use HasFactory;
 
+    //* array utilizzato per centralizzare i campi della tabella in modo da rendere più leggibile store() in PageController.php (per creare un nuovo progetto)
+  protected $fillable = [
+    'name',
+    'slug',
+    'description',
+    'category',
+    'start_date',
+    'end_date',
+    'url',
+    'produced_for',
+    'collaborators'
+  ];
+
     //* funzione per generare uno slug univoco
   public static function generateSlug($str){
 

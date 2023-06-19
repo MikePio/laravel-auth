@@ -45,21 +45,28 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-      //* per salvare i dati nel database al click del button submit del form in create
+      //* per creare un nuovo progetto e salvare i dati nel database al click del button submit del form in create
       $form_data = $request->all();
 
       $new_project = new Project();
 
-      $new_project->name = $form_data['name'];
-      $new_project->slug = Project::generateSlug($form_data['name']);
-      $new_project->description = $form_data['description'];
-      $new_project->category = $form_data['category'];
-      // $new_project->date = date('Y-m-d');
-      $new_project->start_date = $form_data['start_date'];
-      $new_project->end_date = $form_data['end_date'];
-      $new_project->url = $form_data['url'];
-      $new_project->produced_for = $form_data['produced_for'];
-      $new_project->collaborators = $form_data['collaborators'];
+      //*soluzione 1 senza fillable
+      // $new_project->name = $form_data['name'];
+      // $new_project->slug = Project::generateSlug($form_data['name']);
+      // $new_project->description = $form_data['description'];
+      // $new_project->category = $form_data['category'];
+      // // $new_project->date = date('Y-m-d');
+      // $new_project->start_date = $form_data['start_date'];
+      // $new_project->end_date = $form_data['end_date'];
+      // $new_project->url = $form_data['url'];
+      // $new_project->produced_for = $form_data['produced_for'];
+      // $new_project->collaborators = $form_data['collaborators'];
+
+      //*soluzione 2 con fillable (collegata al model Project.php)
+      // lo slug deve essere generato in modo automatico ogni volta che viene creato un nuovo prodotto quindi è stata creata un funzione nel model
+      $form_data['slug'] = Project::generateSlug($form_data['name']);
+      // con fill i dati vengono salvati tramite le chiavi salvate nel model in protected $fillable in modo da fare l'associazione chiave-valore automaticamente
+      $new_project->fill($form_data);
 
       // dd($request->all());
       $new_project->save();
