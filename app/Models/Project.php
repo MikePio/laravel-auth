@@ -21,7 +21,9 @@ class Project extends Model
     'end_date',
     'url',
     'produced_for',
-    'collaborators'
+    'collaborators',
+    'image_path',
+    'image_original_name'
   ];
 
     //* funzione per generare uno slug univoco

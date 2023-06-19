@@ -8,7 +8,8 @@ use App\Models\Project;
 use Illuminate\Http\Request;
 //* importo la reuest per la validazione degli errori
 use App\Http\Requests\ProjectRequest;
-
+//* importare la facades storage (necessaria per le immagini)
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -97,6 +98,28 @@ public function store(ProjectRequest $request)
       // $new_project->url = $form_data['url'];
       // $new_project->produced_for = $form_data['produced_for'];
       // $new_project->collaborators = $form_data['collaborators'];
+
+
+
+      //* IMMAGINI
+      //* verificare se è stata caricata un immagine
+      if(array_key_exists('image', $form_data)){
+
+        // dd('The image exists');
+//* (PEGGIORE) soluzione 1 PER CARICARE UN IMMAGINE
+        // il 1° param. rappresenta la posizione (public\storage\uploads) in cui viene salvato il file mentre con 2° la rinomina e la inserisce nella posto in cui deve essere salvato
+        // Storage::put('uploads', $form_data['image']);
+
+//* (MIGLIORE) soluzione 2 PER CARICARE UN IMMAGINE mantendo lo stesso nome
+        // prima di salvare l'immagine salvo il nome
+        $form_data['image_original_name'] = $request->file('image')->getClientOriginalName();
+        // salvo l'immagine nella cartella uploads (public\storage\uploads) e in $form_data['image_path'] salvo il percorso
+        $form_data['image_path'] = Storage::put('uploads', $form_data['image']);
+
+        // dd($form_data['image_original_name']);
+        // dd($form_data);
+
+      }
 
       //*soluzione 2 con fillable (collegata al model Project.php)
       // lo slug deve essere generato in modo automatico ogni volta che viene creato un nuovo prodotto quindi è stata creata un funzione nel model
