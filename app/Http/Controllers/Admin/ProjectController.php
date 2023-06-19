@@ -192,8 +192,13 @@ public function store(ProjectRequest $request)
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Project $project)
     {
-        //
+      //* eliminazione progetto
+      $project->delete();
+
+      //* REINDIRIZZAMENTO alla pagina index e mostro il messaggio di avvenuta eliminazione con il metodo WITH
+      //* with(chiave , valore)  accetta 2 parametri. il primo è la CHIAVE della VARIABILE di SESSIONE e il secondo è il VALORE (in questo caso la frase)
+      return redirect()->route('adminprojects.index')->with('deleted', "The project: $project->name was deleted successfully");
     }
 }

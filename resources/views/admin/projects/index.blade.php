@@ -4,6 +4,13 @@
 
 <div class="container overflow-auto p-5 d-flex flex-column align-items-center" style="max-height: calc(100vh - 70.24px);">
 
+  {{-- * stampo l'alert dopo l'ELIMINAZIONE del progetto e solo se in sessione è presente la variabile "deleted" (in ProjectController.php) --}}
+  @if (session('deleted'))
+    <div class="alert alert-success" role="alert">
+      {{ session('deleted') }}
+    </div>
+  @endif
+
   <h1 class="py-4">Projects</h1>
 
   <table class="table table-hover">
@@ -32,10 +39,18 @@
 
           <td>
             <a href="{{ route('adminprojects.show', $project) }}" class="btn btn-primary"><i class="fa-regular fa-eye"></i></a>
-            <a href="{{ route('adminprojects.edit', $project) }}" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></i></a>
             {{-- OPPURE --}}
             {{-- <a href="{{ route('projects.show', $project->id) }}" class="btn btn-primary"><i class="fa-regular fa-eye"></i></a> --}}
             {{-- <a href="#" class="btn btn-primary"><i class="fa-regular fa-eye"></i></a> --}}
+            <a href="{{ route('adminprojects.edit', $project) }}" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a>
+
+            <form action="{{ route('adminprojects.destroy', $project) }}" method="POST" class="d-inline" onsubmit="return confirm('Confirm deletion of the project: {{ $project->name }} ?')">
+              @csrf
+              {{--* aggiungere DELETE perchè non è possibile inserire PUT/PATCH nel method del form al posto di POST --}}
+              @method('DELETE')
+              <button type="submit" class="btn btn-danger"><i class="fa-solid fa-eraser"></i></a>
+            </form>
+
           </td>
         </tr>
 
