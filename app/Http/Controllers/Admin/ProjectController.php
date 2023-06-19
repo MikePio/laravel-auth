@@ -145,9 +145,9 @@ public function store(ProjectRequest $request)
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Project $project)
     {
-        //
+      return view('admin.projects.edit', compact('project'));
     }
 
     /**
@@ -157,9 +157,33 @@ public function store(ProjectRequest $request)
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    //* bisogna aggiungere "Project $project" in modo da ottenere gli errori scritti nella request in store() (per create.blade.php)
+    public function update(Request $request, Project $project)
     {
-        //
+      //* prendo tutti i dati fillable salvati in request
+      $form_data = $request->all();
+
+      //* se il titolo è stato modificato
+      //* genero un nuovo slug
+      //* altrimenti lo slug resta lo stesso di prima
+      if($project->slug === $form_data['name']){
+        $form_data['slug'] = Project::generateSlug($form_data['name']);
+      }else{
+        $form_data['slug'] = $project->slug;
+      }
+
+      //* aggiorno i dati
+      $project->update($form_data);
+
+      // con orario formattato (per show.blade.php)
+      $start_date = date_create($project->start_date);
+      $start_date_formatted = date_format($start_date, 'd/m/Y');
+
+      // con orario formattato (per show.blade.php)
+      $end_date = date_create($project->end_date);
+      $end_date_formatted = date_format($end_date, 'd/m/Y');
+
+      return view('admin.projects.show', compact('project', 'start_date_formatted', 'end_date_formatted'));
     }
 
     /**
