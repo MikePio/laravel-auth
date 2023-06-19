@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 //* importare il model
 use App\Models\Project;
 use Illuminate\Http\Request;
+//* importo la reuest per la validazione degli errori
+use App\Http\Requests\ProjectRequest;
 
 
 class ProjectController extends Controller
@@ -43,8 +45,18 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+
+//*soluzione 1 mostrare gli errori / per la validazione dei dati
+//* CON il file ProjectRequest.php (creato dal terminale)
+public function store(ProjectRequest $request)
+{
+
+  //*soluzione 2 mostrare gli errori / per la validazione dei dati
+  //* SENZA il file ProjectRequest.php
+  // TODO da completare
+    // public function store(Request $request)
+    // {
+
       //* per creare un nuovo progetto e salvare i dati nel database al click del button submit del form in create
       $form_data = $request->all();
 

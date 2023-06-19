@@ -5,6 +5,23 @@
 
 <div class="container overflow-auto p-5 d-flex flex-column align-items-center" style="max-height: calc(100vh - 70.24px);">
 
+  <h1>New Project</h1>
+
+  {{-- {{ $errors }} --}}
+  {{-- se $errors->any() è true ci sono degli errori nella sessione  --}}
+  @if ($errors->any())
+
+  <div class="alert alert-danger" role="alert">
+    <ul>
+      {{-- $errors->all() inserisce gli errori in un array che viene ciclato solo se $errors->any() è true --}}
+      @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+
+  @endif
+
   <form action="{{ route('adminprojects.store') }}" method="POST">
     {{-- //* token IMPORTANTE di verifica validità del form (viene utilizzato per dare una maggiore sicurezza ai dati) --}}
     @csrf
@@ -39,7 +56,7 @@
     </div>
     <div class="mb-3">
         <label for="description" class="form-label">Description</label>
-        <textarea type="text" class="form-control" id="description" name="description" placeholder="Description" style="height: 200px;"></textarea>
+        <textarea type="text" class="form-control" id="description" name="description" placeholder="Description" style="height: 200px;">{{ old('description')}}</textarea>
     </div>
 
     <button type="submit" class="btn btn-primary mt-3">Submit</button>

@@ -22,9 +22,9 @@ return new class extends Migration
             $table->string('category');
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
-            $table->string('url')->nullable();
+            $table->string('url');
             $table->string('produced_for')->nullable();
-            $table->text('collaborators')->nullable();
+            $table->string('collaborators')->nullable();
             $table->timestamps();
         });
     }
