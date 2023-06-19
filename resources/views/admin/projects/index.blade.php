@@ -38,12 +38,15 @@
           <td>{{ $project->produced_for }}</td>
 
           <td>
+            {{--* button per SHOW (mostrare il singolo progetto) --}}
             <a href="{{ route('adminprojects.show', $project) }}" class="btn btn-primary"><i class="fa-regular fa-eye"></i></a>
             {{-- OPPURE --}}
             {{-- <a href="{{ route('projects.show', $project->id) }}" class="btn btn-primary"><i class="fa-regular fa-eye"></i></a> --}}
             {{-- <a href="#" class="btn btn-primary"><i class="fa-regular fa-eye"></i></a> --}}
+            {{--* button per EDIT (modificare il singolo progetto) --}}
             <a href="{{ route('adminprojects.edit', $project) }}" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a>
 
+            {{--* button per DELETE (eliminare il singolo progetto) --}}
             <form action="{{ route('adminprojects.destroy', $project) }}" method="POST" class="d-inline" onsubmit="return confirm('Confirm deletion of the project: {{ $project->name }} ?')">
               @csrf
               {{--* aggiungere DELETE perchè non è possibile inserire PUT/PATCH nel method del form al posto di POST --}}

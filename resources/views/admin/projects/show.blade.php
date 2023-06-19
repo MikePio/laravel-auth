@@ -6,7 +6,19 @@
 <div class="container overflow-auto p-5 d-flex flex-column align-items-center" style="max-height: calc(100vh - 70.24px);">
 
   {{-- @dump($project); --}}
-  <h1 class="py-4">{{ $project->name }}</h1>
+  <h1 class="py-4">{{ $project->name }}
+    {{--* button per EDIT (modificare il singolo progetto) --}}
+    <a href="{{ route('adminprojects.edit', $project) }}" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a>
+
+    {{--* button per DELETE (eliminare il singolo progetto) --}}
+    <form action="{{ route('adminprojects.destroy', $project) }}" method="POST" class="d-inline" onsubmit="return confirm('Confirm deletion of the project: {{ $project->name }} ?')">
+      @csrf
+      {{--* aggiungere DELETE perchè non è possibile inserire PUT/PATCH nel method del form al posto di POST --}}
+      @method('DELETE')
+      <button type="submit" class="btn btn-danger"><i class="fa-solid fa-eraser"></i></a>
+    </form>
+  </h1>
+
   {{-- <img src="{{ $project->image }}" class="py-2"> --}}
   <h5 class="py-2"><strong class="text-decoration-underline">Id:</strong> {{ $project->id }}</h5>
   <h5 class="py-2"><strong class="text-decoration-underline">Slug:</strong> {{ $project->slug }}</h5>
