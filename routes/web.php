@@ -21,7 +21,10 @@ Route::get('/', [PageController::class, 'index'])->name('home');
 
 Route::middleware(['auth', 'verified'])
     ->name('admin')
+    //! SBAGLIATO rotte senza punto
     ->prefix('admin')
+    //* CORRETTO rotte con il punto
+    // ->prefix('admin.')
     ->group(function(){
         Route::get('/', [DashboardController::class, 'index'])->name('home');
         Route::resource('projects', ProjectController::class);
