@@ -24,7 +24,7 @@ class ProjectRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-//* necessari per la soluzione 1 -> public function store(ProjectRequest $request){
+//* necessari per la soluzione 1 MIGLIORE -> public function store(ProjectRequest $request){
     public function rules()
     {
         return [
@@ -38,7 +38,7 @@ class ProjectRequest extends FormRequest
           'collaborators' => 'max:255'
         ];
     }
-//* necessari per la soluzione 1 -> public function store(ProjectRequest $request){
+//* necessari per la soluzione 1 MIGLIORE -> public function store(ProjectRequest $request){
     public function messages(){
       return [
           'name.required' => 'The name field is required',

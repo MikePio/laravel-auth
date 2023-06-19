@@ -8,7 +8,8 @@
   {{-- @dump($project); --}}
   <h1 class="py-4">{{ $project->name }}</h1>
   {{-- <img src="{{ $project->image }}" class="py-2"> --}}
-  <h6 class="py-2"><strong class="text-decoration-underline">Id:</strong> {{ $project->id }}</h6>
+  <h5 class="py-2"><strong class="text-decoration-underline">Id:</strong> {{ $project->id }}</h5>
+  <h5 class="py-2"><strong class="text-decoration-underline">Slug:</strong> {{ $project->slug }}</h5>
   <p class="py-2"><strong class="text-decoration-underline">Description:</strong> {!! $project->description !!}</p>
   <h6 class="py-2"><strong class="text-decoration-underline">Category:</strong> {{ $project->category }}</h6>
   {{-- * senza orario formattato --}}
