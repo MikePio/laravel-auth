@@ -7,6 +7,8 @@ Separare gli ambienti Guest da quelli Admin per quanto riguarda: stili, js, cont
 
 Infine creare la CRUD(Create, Read, Update e Delete) di un Portfolio.
 
+Include nella CRUD del portfolio l’aggiunta dell’immagine e la sua relativa eliminazione.
+
 ## **BONUS**
 In edit e create sostituire la textarea utilizzando CK Editor.
 

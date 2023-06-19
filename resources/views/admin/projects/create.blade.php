@@ -22,7 +22,7 @@
 
   @endif
 
-  <form action="{{ route('adminprojects.store') }}" method="POST">
+  <form action="{{ route('adminprojects.store') }}" method="POST" enctype="multipart/form-data">
     {{-- //* token IMPORTANTE di verifica validità del form (viene utilizzato per dare una maggiore sicurezza ai dati) --}}
     @csrf
 
@@ -31,6 +31,13 @@
         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Name Project" value="{{ old('name')}}">
     </div>
     @error('name')
+      <p class="text-danger">{{ $message }}</p>
+    @enderror
+    <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image">
+    </div>
+    @error('image')
       <p class="text-danger">{{ $message }}</p>
     @enderror
     <div class="mb-3">
