@@ -113,8 +113,13 @@ public function store(ProjectRequest $request)
 //* (MIGLIORE) soluzione 2 PER CARICARE UN IMMAGINE mantendo lo stesso nome
         // prima di salvare l'immagine salvo il nome
         $form_data['image_original_name'] = $request->file('image')->getClientOriginalName();
-        // salvo l'immagine nella cartella uploads (public\storage\uploads) e in $form_data['image_path'] salvo il percorso
+        // salvo l'immagine nella cartella uploads (public\storage\uploads) e in $form_data['image_path'] salvo il percorso //! il nome originale viene salvato nel db ma nel percorso del db e nella cartella uploads non viene salvato il nome originale
         $form_data['image_path'] = Storage::put('uploads', $form_data['image']);
+        //! SOLO UN ESEMPIO MA per fare ciò c'è bisogno che l'immagine abbia un nome univoco quindi aggiungere ulteriori controlli // per salvare il nome originale anche nel percorso del db e nella cartella uploads
+        // $form_data['image_path'] = Storage::putFileAs('uploads', $form_data['image'], 'nomeImmagine');
+        // ESEMPIO salvare il percorso concatenato con l'anno //! lo stesso percorso deve essere scritto anche in show.blade.php
+        // $form_data['image_path'] = Storage::put('uploads/'. d('Y') . '/', $form_data['image']);
+
 
         // dd($form_data['image_original_name']);
         // dd($form_data);
